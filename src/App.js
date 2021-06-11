@@ -10,7 +10,7 @@ function App() {
   const guessedWords = [];
   return (
     <div data-test="component-app" className="container">
-      <h1>Jotto App</h1>
+      <h1>Jotto-App</h1>
       <Congrats success={true} />
       <Input success={success} secretWord={secretWord} />
       <GuessedWords guessedWords={guessedWords} />
