@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import Congrats from './Congrats';
 import GuessedWords from './GuessWords';
@@ -8,13 +8,15 @@ import { getSecretWord } from './actions';
 
 function App() {
 
+  const dispatch = useDispatch();
+
   const success = useSelector(state => state.success);
   const guessedWords = useSelector(state => state.guessedWords);
-
-  const secretWord = 'party';
+  const secretWord = useSelector(state => state.secretWord);
 
   useEffect(() => {
-    getSecretWord();
+    dispatch(getSecretWord());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
