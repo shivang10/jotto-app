@@ -31,7 +31,7 @@ describe('get secret word', () => {
     })
 
     test('getSecretWord on app mount', () => {
-        const wrapper = setup();
+        setup();
         expect(mockGetSecretWord).toHaveBeenCalledTimes(1);
 
     });
