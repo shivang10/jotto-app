@@ -1,5 +1,5 @@
 import { storeFactory } from '../test/testUtils';
-import { guessedWord } from './actions';
+import { guessWord } from './actions';
 
 describe('guessWord action dispatcher', () => {
     const secretWord = 'party';
@@ -11,7 +11,7 @@ describe('guessWord action dispatcher', () => {
             store = storeFactory(initialState);
         });
         test('updates state correctly for unsuccessful guess', () => {
-            store.dispatch(guessedWord(unsuccessfulGuess));
+            store.dispatch(guessWord(unsuccessfulGuess));
             const newState = store.getState()
             const expectedState = {
                 ...initialState,
@@ -24,7 +24,7 @@ describe('guessWord action dispatcher', () => {
             expect(newState).toEqual(expectedState);
         });
         test('updates state correctly for successful guess', () => {
-            store.dispatch(guessedWord(secretWord));
+            store.dispatch(guessWord(secretWord));
             const newState = store.getState();
             const expectedState = {
                 ...initialState,
@@ -45,7 +45,7 @@ describe('guessWord action dispatcher', () => {
             store = storeFactory(initialState);
         })
         test('updates state correctly for unsuccessful guess', () => {
-            store.dispatch(guessedWord(unsuccessfulGuess));
+            store.dispatch(guessWord(unsuccessfulGuess));
             const newState = store.getState();
             const expectedState = {
                 secretWord,
@@ -58,7 +58,7 @@ describe('guessWord action dispatcher', () => {
             expect(newState).toEqual(expectedState);
         });
         test('updates state correctly for successful guess', () => {
-            store.dispatch(guessedWord(secretWord));
+            store.dispatch(guessWord(secretWord));
             const newState = store.getState();
             const expectedState = {
                 secretWord,

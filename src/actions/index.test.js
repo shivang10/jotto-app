@@ -20,11 +20,10 @@ describe('getSecretWord', () => {
         });
 
         // update to test app in redux / context section
-        return store.dispatch(getSecretWord()
+        return store.dispatch(getSecretWord())
             .then(() => {
                 const secretWord = store.getState().secretWord;
                 expect(secretWord).toBe('party');
-            })
-        );
+            });
     });
 });

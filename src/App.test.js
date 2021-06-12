@@ -1,3 +1,4 @@
+import React from 'react';
 import { mount } from 'enzyme';
 import { findByTestAttr, storeFactory } from '../test/testUtils';
 import { Provider } from 'react-redux';
@@ -8,10 +9,14 @@ jest.mock('./actions');
 
 const setup = () => {
     const store = storeFactory();
-    return mount(<Provider store={store}><App /></Provider>);
+    return mount(
+        <Provider store={store}>
+            <App />
+        </Provider>
+    );
 }
 
-test('testing will go in future', () => {
+test('renders without error', () => {
     const wrapper = setup();
     const appComponent = findByTestAttr(wrapper, 'component-app');
     expect(appComponent).toHaveLength(1);

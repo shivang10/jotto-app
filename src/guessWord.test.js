@@ -71,7 +71,7 @@ describe('guess secret word', () => {
 
     test('adds row to guessedWords table', () => {
         const guessedWordsRows = findByTestAttr(wrapper, 'guessed-word');
-        expect(guessedWordsRows).toHaveLength(2);
+        expect(guessedWordsRows).toHaveLength(3);
     });
 
     test('displays congrats component', () => {

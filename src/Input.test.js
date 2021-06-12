@@ -64,16 +64,11 @@ test('does not throw warning with expected props', () => {
 describe('state controlled input field', () => {
 
     let mockSetCurrentGuess = jest.fn(), wrapper;
-    let originalUseState;
 
     beforeEach(() => {
         mockSetCurrentGuess.mockClear();
-        originalUseState = React.useState;
         React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
         wrapper = setup({ success: false });
-    });
-    afterEach(() => {
-        React.useState = originalUseState;
     });
 
     test('state updates with value of input box upon change', () => {

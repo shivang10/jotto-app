@@ -6,7 +6,7 @@ describe("getLetterMatchCount", () => {
         const letterMatchCount = getLetterMatchCount('bones', secretWord);
         expect(letterMatchCount).toBe(0);
     });
-    test("returns correct count when there are thre matching letters", () => {
+    test("returns correct count when there are there matching letters", () => {
         const letterMatchCount = getLetterMatchCount('train', secretWord);
         expect(letterMatchCount).toBe(3);
     });
@@ -14,4 +14,4 @@ describe("getLetterMatchCount", () => {
         const letterMatchCount = getLetterMatchCount('parka', secretWord);
         expect(letterMatchCount).toBe(3);
     });
-})
+});
