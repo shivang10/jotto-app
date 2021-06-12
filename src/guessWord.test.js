@@ -1,11 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 
 import App from './App';
-import { findByTestAttr } from "../test/testUtils";
+import { findByTestAttr, storeFactory } from "../test/testUtils";
 
-const setup = (state = {}) => {
-    const wrapper = mount(<App />);
+jest.mock('./actions');
+
+const setup = (initialState = {}) => {
+    const store = storeFactory(initialState);
+    const wrapper = mount(<Provider store={store}><App /></Provider>);
 
     const inputBox = findByTestAttr(wrapper, 'input-box');
     inputBox.simulate('change', { target: { value: "train" } });
@@ -16,7 +20,7 @@ const setup = (state = {}) => {
     return wrapper;
 }
 
-describe.skip('no words guessed', () => {
+describe('no words guessed', () => {
     let wrapper = setup();
     beforeEach(() => {
         wrapper = setup({
@@ -32,7 +36,7 @@ describe.skip('no words guessed', () => {
     });
 });
 
-describe.skip('some words guessed', () => {
+describe('some words guessed', () => {
     let wrapper = setup();
     beforeEach(() => {
         wrapper = setup({
@@ -48,7 +52,7 @@ describe.skip('some words guessed', () => {
     });
 });
 
-describe.skip('guess secret word', () => {
+describe('guess secret word', () => {
     let wrapper = setup();
     beforeEach(() => {
         wrapper = setup({
